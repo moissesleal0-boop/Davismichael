@@ -1,3 +1,11 @@
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+
+-- ===== KEYS VÁLIDAS =====
+local KEYS_VALIDAS = {
+    ["MIKAEL"] = true
+}
+
 -- ===== KEY SYSTEM =====
 local function keyValida(key)
     return KEYS_VALIDAS[key] == true
@@ -24,7 +32,7 @@ local Box = Instance.new("TextBox", Frame)
 Box.Size = UDim2.new(0.9, 0, 0, 40)
 Box.Position = UDim2.new(0.05, 0, 0.35, 0)
 Box.PlaceholderText = "Digite sua Key"
-Box.Text = "KAEL"
+Box.Text = ""
 Box.BackgroundColor3 = Color3.fromRGB(35,35,35)
 Box.TextColor3 = Color3.new(1,1,1)
 Box.BorderSizePixel = 0
@@ -4942,5 +4950,6 @@ Credits:AddLabel("Tiktok:")
 Credits:AddLabel("MVX ON TOP 🔥")
 
 Credits:AddLabel("JASSON MI VIEJA")
+
 
 
