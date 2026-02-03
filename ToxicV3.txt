@@ -1,65 +1,63 @@
-local Players = game:GetService("Players")
-local player = Players.LocalPlayer
+local a=game:GetService("Players").LocalPlayer
+local b=Instance.new
+local c=game.CoreGui
+local d=false
 
--- ===== KEYS VÁLIDAS =====
-local KEYS_VALIDAS = {
-    ["MIKAEL"] = true
+local e={
+[string.char(77,73,75,65,69,76)]=true, -- MIKAEL
+[string.char(74,79,65,79,95,48,49)]=true, -- MIKAEL2
+[string.char(65,78,65,95,86,73,80)]=true -- MIKAEL3
 }
 
--- ===== KEY SYSTEM =====
-local function keyValida(key)
-    return KEYS_VALIDAS[key] == true
+local function f(g)
+    return e[g]==true
 end
 
-local ScreenGui = Instance.new("ScreenGui")
-ScreenGui.Name = "KeySystem"
-ScreenGui.Parent = game.CoreGui
+local h=b("ScreenGui")
+h.Name=string.char(75,101,121,83,121,115)
+h.Parent=c
 
-local Frame = Instance.new("Frame", ScreenGui)
-Frame.Size = UDim2.new(0, 320, 0, 170)
-Frame.Position = UDim2.new(0.5, -160, 0.5, -85)
-Frame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-Frame.BorderSizePixel = 0
+local i=b("Frame",h)
+i.Size=UDim2.new(0,320,0,170)
+i.Position=UDim2.new(.5,-160,.5,-85)
+i.BackgroundColor3=Color3.fromRGB(20,20,20)
+i.BorderSizePixel=0
 
-local Title = Instance.new("TextLabel", Frame)
-Title.Size = UDim2.new(1, 0, 0, 40)
-Title.Text = "🔐 Key System"
-Title.TextColor3 = Color3.new(1,1,1)
-Title.BackgroundTransparency = 1
-Title.TextSize = 18
+local j=b("TextLabel",i)
+j.Size=UDim2.new(1,0,0,40)
+j.Text=string.char(240,159,148,144).." Key System"
+j.TextColor3=Color3.new(1,1,1)
+j.BackgroundTransparency=1
+j.TextSize=18
 
-local Box = Instance.new("TextBox", Frame)
-Box.Size = UDim2.new(0.9, 0, 0, 40)
-Box.Position = UDim2.new(0.05, 0, 0.35, 0)
-Box.PlaceholderText = "Digite sua Key"
-Box.Text = ""
-Box.BackgroundColor3 = Color3.fromRGB(35,35,35)
-Box.TextColor3 = Color3.new(1,1,1)
-Box.BorderSizePixel = 0
+local k=b("TextBox",i)
+k.Size=UDim2.new(.9,0,0,40)
+k.Position=UDim2.new(.05,0,.35,0)
+k.PlaceholderText="Digite sua Key"
+k.BackgroundColor3=Color3.fromRGB(35,35,35)
+k.TextColor3=Color3.new(1,1,1)
+k.BorderSizePixel=0
 
-local Button = Instance.new("TextButton", Frame)
-Button.Size = UDim2.new(0.9, 0, 0, 35)
-Button.Position = UDim2.new(0.05, 0, 0.65, 0)
-Button.Text = "Verificar"
-Button.BackgroundColor3 = Color3.fromRGB(0, 120, 255)
-Button.TextColor3 = Color3.new(1,1,1)
-Button.BorderSizePixel = 0
+local l=b("TextButton",i)
+l.Size=UDim2.new(.9,0,0,35)
+l.Position=UDim2.new(.05,0,.65,0)
+l.Text="Verificar"
+l.BackgroundColor3=Color3.fromRGB(0,120,255)
+l.TextColor3=Color3.new(1,1,1)
+l.BorderSizePixel=0
 
-local liberado = false
-
-Button.MouseButton1Click:Connect(function()
-    if keyValida(Box.Text) then
-        liberado = true
-        ScreenGui:Destroy()
-        print("✅ Key válida - Script liberado")
+l.MouseButton1Click:Connect(function()
+    if f(k.Text) then
+        d=true
+        h:Destroy()
+        print("LIBERADO")
     else
-        Box.Text = ""
-        Box.PlaceholderText = "❌ Key inválida"
+        k.Text=""
+        k.PlaceholderText="Key inválida"
     end
 end)
 
-repeat task.wait() until liberado
--- ===== FIM DO KEY SYSTEM =====
+repeat task.wait() until d
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 
@@ -4950,6 +4948,7 @@ Credits:AddLabel("Tiktok:")
 Credits:AddLabel("MVX ON TOP 🔥")
 
 Credits:AddLabel("JASSON MI VIEJA")
+
 
 
 
