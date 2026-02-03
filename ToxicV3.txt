@@ -1,4 +1,61 @@
 local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+
+-- ===== KEY SYSTEM =====
+local function keyValida(key)
+    return KEYS_VALIDAS[key] == true
+end
+
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Name = "KeySystem"
+ScreenGui.Parent = game.CoreGui
+
+local Frame = Instance.new("Frame", ScreenGui)
+Frame.Size = UDim2.new(0, 320, 0, 170)
+Frame.Position = UDim2.new(0.5, -160, 0.5, -85)
+Frame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+Frame.BorderSizePixel = 0
+
+local Title = Instance.new("TextLabel", Frame)
+Title.Size = UDim2.new(1, 0, 0, 40)
+Title.Text = "🔐 Key System"
+Title.TextColor3 = Color3.new(1,1,1)
+Title.BackgroundTransparency = 1
+Title.TextSize = 18
+
+local Box = Instance.new("TextBox", Frame)
+Box.Size = UDim2.new(0.9, 0, 0, 40)
+Box.Position = UDim2.new(0.05, 0, 0.35, 0)
+Box.PlaceholderText = "Digite sua Key"
+Box.Text = ""
+Box.BackgroundColor3 = Color3.fromRGB(35,35,35)
+Box.TextColor3 = Color3.new(1,1,1)
+Box.BorderSizePixel = 0
+
+local Button = Instance.new("TextButton", Frame)
+Button.Size = UDim2.new(0.9, 0, 0, 35)
+Button.Position = UDim2.new(0.05, 0, 0.65, 0)
+Button.Text = "Verificar"
+Button.BackgroundColor3 = Color3.fromRGB(0, 120, 255)
+Button.TextColor3 = Color3.new(1,1,1)
+Button.BorderSizePixel = 0
+
+local liberado = false
+
+Button.MouseButton1Click:Connect(function()
+    if keyValida(Box.Text) then
+        liberado = true
+        ScreenGui:Destroy()
+        print("✅ Key válida - Script liberado")
+    else
+        Box.Text = ""
+        Box.PlaceholderText = "❌ Key inválida"
+    end
+end)
+
+repeat task.wait() until liberado
+-- ===== FIM DO KEY SYSTEM =====
+local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 
 -- Whitelist desativada - você pode usar o script livremente
@@ -4886,4 +4943,5 @@ Credits:AddLabel("Toxic Paid V3")
 Credits:AddLabel("Script Hecho por: Rafael")
 Credits:AddLabel("Tiktok:")
 Credits:AddLabel("MVX ON TOP 🔥")
+
 Credits:AddLabel("JASSON MI VIEJA")
